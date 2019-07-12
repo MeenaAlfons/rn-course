@@ -148,8 +148,3 @@ this.state.categories.map(category => (
 
 - Could not connect to development server => Reason: server not running
 - Unable to load script => Reason: Server not ready yet
-
-# Email
-
-meena.alfons@ivasystem.fr
-Subject: RN ITI 3m 2019

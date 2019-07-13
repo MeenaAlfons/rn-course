@@ -1,0 +1,29 @@
+import React, {Component} from 'react';
+import TodoList from './TodoList';
+import {createStore} from 'redux';
+import reducer from '../reducers';
+
+const store = createStore(reducer);
+
+class App extends Component {
+  state = {
+    toggle: true
+  };
+
+  constructor(props) {
+    super(props);
+    store.subscribe(() => {
+      this.setState({
+        toggle: !this.state.toggle
+      });
+    });
+  }
+
+  render() {
+    return (
+      <TodoList todos={store.getState().todos} store={store}/>
+    );
+  }
+}
+
+export default App;

@@ -13,7 +13,7 @@
 
 # 1. GUI Application Development History
 
-- Coding presentational & evnt-driven applications
+- Coding presentational & event-driven applications
 - MVC as a solution
 - Flux to metigate MVC shortcoming
 

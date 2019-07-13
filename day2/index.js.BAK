@@ -1,0 +1,55 @@
+/**
+ * @format
+ */
+
+import {AppRegistry} from 'react-native';
+import App from './App';
+import {name as appName} from './app.json';
+
+AppRegistry.registerComponent(appName, () => App);
+
+
+import { createStore } from 'redux';
+
+const defaultState = {
+    hello: "Bye"
+};
+
+const reducer = (state = defaultState, action) => {
+    
+    switch(action.type)
+    {
+        case "CHANGE_HELLO":
+            return {
+                hello: action.text
+            };
+        default:
+            return state;
+    }
+}
+
+const store = createStore(reducer);
+
+console.log(store.getState());
+
+const CHANGE_HELLO_ACTION = {
+    type: "CHANGE_HELLO",
+    text: "No way"
+};
+store.dispatch(CHANGE_HELLO_ACTION);
+
+console.log(store.getState());
+
+
+// ============================
+
+store.subscribe(() => {
+    console.log("State changed");
+    console.log("New State", store.getState());
+});
+
+// ============================
+
+store.dispatch(CHANGE_HELLO_ACTION);
+
+store.dispatch(CHANGE_HELLO_ACTION);
